@@ -4,7 +4,9 @@ int main(int argc, char *argv[]) {
   int choice = 1;
   while (choice) {
     std::cout << "\nEnter the program you want to run:"
-        << "\n10: Rectangular mesh\n";
+        << "\n0: Exit\n"
+        << "\n10: Program to display a set of values { fij } as a rectangular mesh\n"
+        << ">";
     std::cin >> choice;
     switch (choice) {
       case 10: {

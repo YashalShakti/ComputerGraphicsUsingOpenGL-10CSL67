@@ -1,5 +1,6 @@
 //
 // Created by Yashal on 8/5/16.
+// Program to display a set of values { fij } as a rectangular mesh
 //
 
 #include "RectangularMesh.h"
