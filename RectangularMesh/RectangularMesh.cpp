@@ -61,9 +61,9 @@ void RectangularMesh::display() {
     for (j = 0; j < MAX_Y - 1; j++) {
 
       /*
-       * Using GL_LINE_LOOP we specify four points
-       * 2  3
-       * 1  4
+       * Using GL_LINE_LOOP, specify four points
+       * 2(i,j+1)  3(i+1,j+1)
+       * 1(i,j)    4(i+1,j)
        * to draw a loop
        */
       //Begin
