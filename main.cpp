@@ -5,10 +5,22 @@ int main(int argc, char *argv[]) {
   while (choice) {
     std::cout << "\nEnter the program you want to run:"
         << "\n0: Exit\n"
+        << "\n1: Recursively subdivide a tetrahedron to from 3D Sierpinski gasket\n"
+        << "\n3: Program to Rotate a house\n"
         << "\n10: Program to display a set of values { fij } as a rectangular mesh\n"
         << ">";
     std::cin >> choice;
     switch (choice) {
+      case 1: {
+        SierpinskiGasket *sierpinskiGasket = new SierpinskiGasket();
+        sierpinskiGasket->main(argc, argv);
+        break;
+      }
+      case 3: {
+        RotatingAHouse *r = new RotatingAHouse();
+        r->main(argc, argv);
+        break;
+      }
       case 10: {
         RectangularMesh *r = new RectangularMesh();
         r->main(argc, argv);

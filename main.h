@@ -8,3 +8,5 @@
 #endif //CG2016_MAIN_H
 
 #include "RectangularMesh/RectangularMesh.h"
+#include "RotatingAHouse/RotatingAHouse.h"
+#include "SierpinskiGasket/SierpinskiGasket.h"

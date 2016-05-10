@@ -26,7 +26,7 @@ endif(NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(output RectangularMesh/RectangularMesh.h RectangularMesh/RectangularMesh.cpp main.cpp main.h)
+add_executable(output RectangularMesh/RectangularMesh.h RectangularMesh/RectangularMesh.cpp main.cpp main.h RotatingAHouse/RotatingAHouse.cpp RotatingAHouse/RotatingAHouse.h SierpinskiGasket/SierpinskiGasket.cpp SierpinskiGasket/SierpinskiGasket.h LiangBarsky/LiangBarsky.cpp LiangBarsky/LiangBarsky.h)
 
 ########################################################
 # Linking & stuff
