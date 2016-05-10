@@ -3,24 +3,13 @@
 //
 
 #include "SpinACube.h"
-/*static GLfloat vertices[]={-0.5,-0.5,-0.5,    -0.5,0.5,-0.5,    0.5,0.5,-0.5,   0.5,-0.5,-0.5,
-                         -0.5,-0.5,0.5,     -0.5,0.5,0.5,     0.5,0.5,0.5,     0.5,-0.5,-0.5};
+static GLfloat vertices[]={-0.5,-0.5,-0.5,    -0.5,0.5,-0.5,    0.5,0.5,-0.5,   0.5,-0.5,-0.5,
+                           -0.5,-0.5,0.5,     -0.5,0.5,0.5,     0.5,0.5,0.5,     0.5,-0.5,-0.5};
 
- static GLint colors[] = {0,0,0,   0,0,1,    0,1,0,    0,1,1,
-                          1,0,0,  1,0,1,    1,1,0,     1,1,1};
+static GLint colors[] = {0,0,0,   0,0,1,    0,1,0,    0,1,1,
+                         1,0,0,   1,0,1,    1,1,0,    1,1,1};
 
 static GLbyte faces[] = {0,1,2,3,   2,3,7,6,   4,5,6,7,  4,5,1,0,   5,6,2,1,   0,3,7,4};
- */
-
-
-
-static GLfloat vertices[] = {-0.5f, -0.5f, -0.5f, -0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f, 0.5f, -0.5f, -0.5f,
-                             -0.5f, -0.5f, 0.5f, -0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, -0.5f, 0.5f};
-
-static GLfloat colors[] = {0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1,
-                           1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1};
-
-static GLbyte faces[] = {0, 1, 2, 3, 2, 3, 7, 6, 4, 5, 6, 7, 4, 5, 1, 0, 5, 6, 2, 1, 0, 3, 7, 4};
 
 int currentAxis[3] = {0, 0, 1};
 
@@ -51,16 +40,20 @@ void SpinACube::glInit() {
 }
 void SpinACube::mouseClickListener(int btn, int state, int x, int y) {
   // Bind one axis to one button
-  currentAxis[0] = 0;
-  currentAxis[1] = 0;
-  currentAxis[2] = 0;
+
   if (btn == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
     currentAxis[0] = 1;
+    currentAxis[1] = 0;
+    currentAxis[2] = 0;
   }
   if (btn == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN) {
+    currentAxis[0] = 0;
     currentAxis[1] = 1;
+    currentAxis[2] = 0;
   }
   if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
+    currentAxis[0] = 0;
+    currentAxis[1] = 0;
     currentAxis[2] = 1;
   }
 }
