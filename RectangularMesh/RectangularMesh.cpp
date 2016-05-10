@@ -22,7 +22,7 @@ void RectangularMesh::init() {
   glLoadIdentity();
 
   // Set the clipping region of the screen/window to be viewed.
-  // Our window size is 500 x 500 so this function will view it from left=0,right=500 and bottom=0,top=500
+  // The window size is 500 x 500 so this function will view it from left=0,right=500 and bottom=0,top=500
   gluOrtho2D(0.0, 500.0, 0.0, 500.0);
 }
 
@@ -54,16 +54,16 @@ void RectangularMesh::display() {
     y[i] = y0 + i * dY;
   }
 
-  // Color out segments blue
+  // Color the segments blue
   glColor3f(0.0, 0.0, 1.0);
 
   for (i = 0; i < MAX_X - 1; i++) {
     for (j = 0; j < MAX_Y - 1; j++) {
 
       /*
-       * Using GL_LINE_LOOP we specify four points
-       * 2  3
-       * 1  4
+       * Using GL_LINE_LOOP, specify four points
+       * 2(i,j+1)  3(i+1,j+1)
+       * 1(i,j)    4(i+1,j)
        * to draw a loop
        */
       //Begin
@@ -82,7 +82,7 @@ void RectangularMesh::display() {
 
 int RectangularMesh::main(int argc, char *argv[]) {
 
-  // Glut is used for making window.First initGl the window
+  // Glut is used for making window. First init the window
   glutInit(&argc, argv);
 
   /* This is not necessary since the default values are GLUT_SINGLE and GLUT_RGB
@@ -98,10 +98,10 @@ int RectangularMesh::main(int argc, char *argv[]) {
   // Create the window
   glutCreateWindow("Rectangular mesh");
 
-  // Initialize our window ( Background, buffer, matrix etc)
+  // Initialize the window ( Background, buffer, matrix etc)
   init();
 
-  // Specify the callback function that will render our window
+  // Specify the callback function that will render the window
   glutDisplayFunc(display);
 
   // This starts the OpenGL flow using callbacks
