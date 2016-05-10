@@ -10,3 +10,6 @@
 #include "RectangularMesh/RectangularMesh.h"
 #include "RotatingAHouse/RotatingAHouse.h"
 #include "SierpinskiGasket/SierpinskiGasket.h"
+#include "LiangBarsky/LiangBarsky.h"
+#include "CohenSutherland/CohenSutherland.h"
+#include "SpinACube/SpinACube.h"

@@ -82,7 +82,7 @@ void RectangularMesh::display() {
 
 int RectangularMesh::main(int argc, char *argv[]) {
 
-  // Glut is used for making window. We first init the window
+  // Glut is used for making window.First initGl the window
   glutInit(&argc, argv);
 
   /* This is not necessary since the default values are GLUT_SINGLE and GLUT_RGB
