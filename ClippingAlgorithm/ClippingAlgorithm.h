@@ -13,6 +13,4 @@ class ClippingAlgorithm {
   static GLfloat xMin, yMin, xMax, yMax;
   static GLfloat xvMin, yvMin, xvMax, yvMax;
 };
-
-
 #endif //CG2016_CLIPPINGALGORITHM_H

@@ -54,7 +54,7 @@ void SG::divideTriangle(Vertex a, Vertex b, Vertex c, int divisions) {
   if (divisions > 0) { // If we still need to divide
     for (int j = 0; j < 3; j++) {
       v1[j] = (a[j] + b[j]) / 2;
-      v2[j] = (a[j] + c[j]) / 2;
+      v2[j] = (c[j] + a[j]) / 2;
       v3[j] = (b[j] + c[j]) / 2;
     }
     // Divide triangle from a/b/c to two other midpoints they are connected to. (a is present in v1 and v2)

@@ -25,7 +25,7 @@ void LB::initGl() {
 
 void LB::display() {
   // Draw the original line
-  glColor3i(1, 0, 0);
+  glColor3f(1, 0, 0);
   glBegin(GL_LINE_LOOP);
   {
     glVertex2f(x0, y0);
@@ -34,7 +34,7 @@ void LB::display() {
   glEnd();
 
   // Draw the windowport
-  glColor3i(0, 0, 1);
+  glColor3f(0, 0, 1);
   glBegin(GL_LINE_LOOP);
   {
     glVertex2f(xMin, yMin);
@@ -95,7 +95,7 @@ void LB::clipAndDraw() {
     vy1 = yvMin + (y1 - yMin) * sy;
 
     // Draw the clipped line
-    glColor3f(1.0, 0.0, 0.0);
+    glColor3f(1.0, 10.0, 0.0);
     glBegin(GL_LINES);
     glVertex2f(vx0, vy0);
     glVertex2f(vx1, vy1);
