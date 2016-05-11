@@ -12,69 +12,6 @@ const int RIGHT = 2;  // 0010
 const int BOTTOM = 4; // 0100
 const int TOP = 8;    // 1000
 
-int CSL::main(int argc, char **argv) {
-  getValues();
-  glutInit(&argc, argv);
-  glutInitWindowSize(720, 720);
-  glutCreateWindow("Cohen Sutherland");
-  glInit();
-  glutDisplayFunc(display);
-  glutMainLoop();
-  return 0;
-}
-
-void CSL::glInit() {
-  glClearColor(1, 1, 1, 1);
-  glClear(GL_COLOR_BUFFER_BIT);
-  glMatrixMode(GL_PROJECTION);
-  glOrtho(0, 720, 0, 720, 1, -1);
-}
-
-void CSL::display() {
-
-  glColor3i(1, 0, 0);
-  drawLine(x0, y0, x1, y1);
-
-  glColor3i(0, 0, 1);
-  drawSquare(xMin, yMin, xMax, yMax);
-
-  clipAndDraw();
-  glFlush();
-}
-
-void CSL::drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
-  glBegin(GL_LINE_LOOP);
-  {
-    glVertex2f(x0, y0);
-    glVertex2f(x1, y1);
-  }
-  glEnd();
-}
-
-void CSL::drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
-  glBegin(GL_LINE_LOOP);
-  {
-    glVertex2f(x0, y0);
-    glVertex2f(x1, y0);
-    glVertex2f(x1, y1);
-    glVertex2f(x0, y1);
-  }
-  glEnd();
-}
-
-void CSL::drawResult() {
-  drawSquare(xvMin, yvMin, xvMax, yvMax);
-  double sx, sy, vx0, vy0, vx1, vy1;
-  sx = (xvMax - xvMin) / (xMax - xMin);
-  sy = (yvMax - yvMin) / (yMax - yMin);
-  vx0 = xvMin + (x0 - xMin) * sx;
-  vy0 = yvMin + (y0 - yMin) * sy;
-  vx1 = xvMin + (x1 - xMin) * sx;
-  vy1 = yvMin + (y1 - yMin) * sy;
-  glColor3f(1.0, 0.0, 0.0);
-  drawLine(vx0, vy0, vx1, vy1);
-}
-
 OutCode CSL::ComputeOutCode(double x, double y) {
   OutCode code;
 
@@ -148,3 +85,68 @@ void CSL::clipAndDraw() {
     drawResult();
   }
 }
+
+// The following code is same for both clipping algorithms
+int CSL::main(int argc, char **argv) {
+  getValues();
+  glutInit(&argc, argv);
+  glutInitWindowSize(720, 720);
+  glutCreateWindow("Cohen Sutherland");
+  glInit();
+  glutDisplayFunc(display);
+  glutMainLoop();
+  return 0;
+}
+
+void CSL::glInit() {
+  glClearColor(1, 1, 1, 1);
+  glClear(GL_COLOR_BUFFER_BIT);
+  glMatrixMode(GL_PROJECTION);
+  glOrtho(0, 720, 0, 720, 1, -1);
+}
+
+void CSL::display() {
+
+  glColor3i(1, 0, 0);
+  drawLine(x0, y0, x1, y1);
+
+  glColor3i(0, 0, 1);
+  drawSquare(xMin, yMin, xMax, yMax);
+
+  clipAndDraw();
+  glFlush();
+}
+
+void CSL::drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
+  glBegin(GL_LINE_LOOP);
+  {
+    glVertex2f(x0, y0);
+    glVertex2f(x1, y1);
+  }
+  glEnd();
+}
+
+void CSL::drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
+  glBegin(GL_LINE_LOOP);
+  {
+    glVertex2f(x0, y0);
+    glVertex2f(x1, y0);
+    glVertex2f(x1, y1);
+    glVertex2f(x0, y1);
+  }
+  glEnd();
+}
+
+void CSL::drawResult() {
+  drawSquare(xvMin, yvMin, xvMax, yvMax);
+  double sx, sy, vx0, vy0, vx1, vy1;
+  sx = (xvMax - xvMin) / (xMax - xMin);
+  sy = (yvMax - yvMin) / (yMax - yMin);
+  vx0 = xvMin + (x0 - xMin) * sx;
+  vy0 = yvMin + (y0 - yMin) * sy;
+  vx1 = xvMin + (x1 - xMin) * sx;
+  vy1 = yvMin + (y1 - yMin) * sy;
+  glColor3f(1.0, 0.0, 0.0);
+  drawLine(vx0, vy0, vx1, vy1);
+}
+
