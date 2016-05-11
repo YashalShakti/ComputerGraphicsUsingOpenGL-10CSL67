@@ -33,25 +33,46 @@ void CSL::glInit() {
 void CSL::display() {
 
   glColor3i(1, 0, 0);
+  drawLine(x0, y0, x1, y1);
+
+  glColor3i(0, 0, 1);
+  drawSquare(xMin, yMin, xMax, yMax);
+
+  clipAndDraw();
+  glFlush();
+}
+
+void CSL::drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glBegin(GL_LINE_LOOP);
   {
     glVertex2f(x0, y0);
     glVertex2f(x1, y1);
   }
   glEnd();
+}
 
-  glColor3i(0, 0, 1);
+void CSL::drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glBegin(GL_LINE_LOOP);
   {
-    glVertex2f(xMin, yMin);
-    glVertex2f(xMax, yMin);
-    glVertex2f(xMax, yMax);
-    glVertex2f(xMin, yMax);
+    glVertex2f(x0, y0);
+    glVertex2f(x1, y0);
+    glVertex2f(x1, y1);
+    glVertex2f(x0, y1);
   }
   glEnd();
+}
 
-  clipAndDraw();
-  glFlush();
+void CSL::drawResult() {
+  drawSquare(xvMin, yvMin, xvMax, yvMax);
+  double sx, sy, vx0, vy0, vx1, vy1;
+  sx = (xvMax - xvMin) / (xMax - xMin);
+  sy = (yvMax - yvMin) / (yMax - yMin);
+  vx0 = xvMin + (x0 - xMin) * sx;
+  vy0 = yvMin + (y0 - yMin) * sy;
+  vx1 = xvMin + (x1 - xMin) * sx;
+  vy1 = yvMin + (y1 - yMin) * sy;
+  glColor3f(1.0, 0.0, 0.0);
+  drawLine(vx0, vy0, vx1, vy1);
 }
 
 OutCode CSL::ComputeOutCode(double x, double y) {
@@ -123,26 +144,7 @@ void CSL::clipAndDraw() {
       }
     }
   }
-
-  glBegin(GL_LINE_LOOP);
-  glVertex2f(xvMin, yvMin);
-  glVertex2f(xvMax, yvMin);
-  glVertex2f(xvMax, yvMax);
-  glVertex2f(xvMin, yvMax);
-  glEnd();
-
   if (accept) {
-    double sx, sy, vx0, vy0, vx1, vy1;
-    sx = (xvMax - xvMin) / (xMax - xMin);
-    sy = (yvMax - yvMin) / (yMax - yMin);
-    vx0 = xvMin + (x0 - xMin) * sx;
-    vy0 = yvMin + (y0 - yMin) * sy;
-    vx1 = xvMin + (x1 - xMin) * sx;
-    vy1 = yvMin + (y1 - yMin) * sy;
-    glColor3f(1.0, 0.0, 0.0);
-    glBegin(GL_LINES);
-    glVertex2f(vx0, vy0);
-    glVertex2f(vx1, vy1);
-    glEnd();
+    drawResult();
   }
 }

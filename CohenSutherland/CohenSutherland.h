@@ -16,7 +16,8 @@ class CohenSutherland: public ClippingAlgorithm {
   static OutCode ComputeOutCode(double x, double y);
   static void glInit();
   static void clipAndDraw();
+  static void drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1);
+  static void drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1);
+  static void drawResult();
 };
-
-
 #endif //CG2016_COHENSUTHERLAND_H
