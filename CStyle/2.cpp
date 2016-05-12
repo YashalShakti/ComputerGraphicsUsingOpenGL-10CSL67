@@ -30,16 +30,20 @@ void drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
 }
 
 void drawResult() {
-  drawSquare(xvMin, yvMin, xvMax, yvMax);
+  drawSquare(xvMin, yvMin, xvMax, yvMax); // draw the viewport
+
   double sx, sy, vx0, vy0, vx1, vy1;
-  sx = (xvMax - xvMin) / (xMax - xMin);
+
+  sx = (xvMax - xvMin) / (xMax - xMin); // Get ratio of viewport/windowport
   sy = (yvMax - yvMin) / (yMax - yMin);
-  vx0 = xvMin + (x0 - xMin) * sx;
-  vy0 = yvMin + (y0 - yMin) * sy;
+
+  vx0 = xvMin + (x0 - xMin) * sx; // Get values of the scaled line
+  vy0 = yvMin + (y0 - yMin) * sy; // the line is scaled with reference to xmin and xvmin
   vx1 = xvMin + (x1 - xMin) * sx;
   vy1 = yvMin + (y1 - yMin) * sy;
+
   glColor3f(1.0, 0.0, 0.0);
-  drawLine(vx0, vy0, vx1, vy1);
+  drawLine(vx0, vy0, vx1, vy1); // draw the scaled line of viewport
 }
 
 int clipTest(float p, float q) {
@@ -68,10 +72,13 @@ void clipAndDraw() {
       && clipTest(-dy, y0 - yMin)
       && clipTest(dy, yMax - y0)) {
 
+    // Simultaneously update x1,y1 and x0,y0
+    // It is important to update x1,y1 first since otherwise value of x0,y0 will change
     if (t1 < 1.0) {
       x1 = x0 + t1 * dx;
       y1 = y0 + t1 * dy;
     }
+
     if (t0 > 0.0) {
       x0 = x0 + t0 * dx;
       y0 = y0 + t0 * dy;
