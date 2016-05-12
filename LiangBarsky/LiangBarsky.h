@@ -13,9 +13,9 @@ class LiangBarsky: public ClippingAlgorithm {
   int main(int argc, char *argv[]);
  private:
   static void display();
-  static void initGl();
+  static void glInit();
   static void clipAndDraw();
-  static int clipTest(float p, float q, float *t0, float *t1);
+  static int clipTest(float p, float q);
   static void drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1);
   static void drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1);
   static void drawResult();

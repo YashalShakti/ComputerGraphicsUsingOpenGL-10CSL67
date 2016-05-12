@@ -15,7 +15,7 @@ class SierpinskiGasket {
   static void drawTetrahedron(int divisions);
   static void drawTriangle(Vertex a,Vertex b,Vertex c);
   static void display();
-  static void initGl();
+  static void glInit(int w, int h);
   static void divideTriangle(Vertex a,Vertex b,Vertex c,int divisions);
 };
 

@@ -4,17 +4,17 @@
 #include "LiangBarsky.h"
 typedef LiangBarsky LB;
 
-int LB::clipTest(float p, float q, float *t0, float *t1) {
+float t0 = 0.0, t1 = 1.0;
+int LB::clipTest(float p, float q) {
   float t = q / p;
-  // For understanding lets assume x0 < x1 and y0 < y1
-  // Aim is to increase t0 value decrease t1 value to clip the line
-  // If p is negative we check for lower/minimum clipping boundary and vice-versa.
+  // Aim is to increase t0 value and decrease t1 value to clip the line
+  // If p is negative; check for lower/minimum clipping boundary and vice-versa.
   if (p < 0.0) {
-    if (t > *t0) *t0 = t; // If current t is > t0 we update t0 value.
-    if (t > *t1) return (0);
+    if (t > t0) t0 = t; // If current t is > t0; update t0 value.
+    if (t > t1) return (0);
   } else if (p > 0.0) {
-    if (t < *t1) *t1 = t; // If current t is < t1 we update t1 value.
-    if (t < *t0) return 0;
+    if (t < t1) t1 = t; // If current t is < t1; update t1 value.
+    if (t < t0) return 0;
   } else if (t == 0) {
     if (q < 0.0) {
       return 0;
@@ -24,12 +24,12 @@ int LB::clipTest(float p, float q, float *t0, float *t1) {
 }
 
 void LB::clipAndDraw() {
-  float dx = x1 - x0, dy = y1 - y0, t0 = 0.0, t1 = 1.0;
+  float dx = x1 - x0, dy = y1 - y0;
 
-  if (clipTest(-dx, x0 - xMin, &t0, &t1)
-      && clipTest(dx, xMax - x0, &t0, &t1)
-      && clipTest(-dy, y0 - yMin, &t0, &t1)
-      && clipTest(dy, yMax - y0, &t0, &t1)) {
+  if (clipTest(-dx, x0 - xMin)
+      && clipTest(dx, xMax - x0)
+      && clipTest(-dy, y0 - yMin)
+      && clipTest(dy, yMax - y0)) {
 
     if (t1 < 1.0) {
       x1 = x0 + t1 * dx;
@@ -51,17 +51,19 @@ int LB::main(int argc, char **argv) {
   glutInit(&argc, argv);
   glutInitWindowSize(720, 720);
   glutCreateWindow("Liang Barsky line clipping");
-  initGl();
+  glInit();
   glutDisplayFunc(display);
   glutMainLoop();
 }
 
-void LB::initGl() {
+void LB::glInit() {
   glClearColor(1, 1, 1, 1);
   glClear(GL_COLOR_BUFFER_BIT);
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  gluOrtho2D(0, 700, 0, 700);
+
+  /*glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();*/
+
+  glOrtho(0, 720, 0, 720, -1, 1);
 }
 
 void LB::display() {

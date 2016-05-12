@@ -36,23 +36,19 @@ void RH::rotate(GLfloat theta, GLfloat result[3][NUM_VERTICES]) {
   n = y - (x * sin(theta) + y * cos(theta)); // of form y-ycos(theta)-xsin(theta)
 
   GLfloat rot_mat[3][3] = {
-      {(GLfloat) cos(theta), (GLfloat) -sin(theta), m},
-      {(GLfloat) sin(theta), (GLfloat) cos(theta), n},
-      {0, 0, 1}
-  };
-  /*  GLfloat rot_mat[3][3] = {
       {cos(theta),  -sin(theta) , m},
       {sin(theta),  cos(theta)  , n},
       {0         ,  0           , 1}
-  };*/
+  };
+
   multiply(rot_mat, house, result);
 }
 
 void RH::display() {
   GLfloat result[3][NUM_VERTICES] = {{0}, {0}, {0}};
-  drawHouse(house);//draw before rotation
+  drawHouse(house);//draw before rotating
   rotate(theta, result);//function to rotate
-  drawHouse(result);
+  drawHouse(result);//draw after rotating
   glFlush();
 }
 

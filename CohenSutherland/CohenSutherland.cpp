@@ -31,7 +31,7 @@ OutCode CSL::ComputeOutCode(double x, double y) {
 }
 
 void CSL::clipAndDraw() {
-  // compute outcodes for P0, P1, and whatever Vertex lies outside the clip rectangle
+  // compute outcodes for P0, P1
   OutCode outcode0 = ComputeOutCode(x0, y0);
   OutCode outcode1 = ComputeOutCode(x1, y1);
   bool accept = false;
@@ -54,6 +54,7 @@ void CSL::clipAndDraw() {
       // Now find the intersection Vertex;
       // use formulas y = y0 + slope * (x - x0), x = x0 + (1 / slope) * (y - y0)
       double slope = (y1 - y0) / (x1 - x0);
+
       if (outcodeOut & TOP) {           // Vertex is above the clip rectangle
         x = x0 + (yMax - y0) / slope;
         y = yMax;
@@ -101,8 +102,11 @@ int CSL::main(int argc, char **argv) {
 void CSL::glInit() {
   glClearColor(1, 1, 1, 1);
   glClear(GL_COLOR_BUFFER_BIT);
-  glMatrixMode(GL_PROJECTION);
-  glOrtho(0, 720, 0, 720, 1, -1);
+
+  /*glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();*/
+
+  glOrtho(0,720,0,720,-1,1);
 }
 
 void CSL::display() {

@@ -14,6 +14,7 @@ class SpinACube {
   static void glInit();
   static void mouseClickListener(int btn, int state, int x, int);
   static void display();
+  static void reshape(int w, int h);
 };
 
 #endif //CG2016_SPINACUBE_H

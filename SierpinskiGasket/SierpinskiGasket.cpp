@@ -8,31 +8,38 @@
 typedef SierpinskiGasket SG;
 
 typedef float Vertex[3];
-// Vertices of a tetrahedron in 3D viewed with one vertex pointing directly to viewer.
-Vertex vertices[] = {{0.0, 0.0, -1.0f}, {0.0, 1.0f, 0.0f}, {-1.0f, -0.5f, 0.0f}, {1.0f, -0.5f, 0.0f}};
+// Vertices of a tetrahedron in 3D viewed with one vertex pointing directly towards viewer.
+Vertex vertices[] = {{0.0, 0.0, 1.0f}, {0.0, 0.8f, 0.0f}, {-0.8f, -0.4f, 0.0f}, {0.8f, -0.4f, 0.0f}};
 
 int SG::main(int argc, char **argv) {
-  // Init window using Glut
   glutInit(&argc, argv);
-  glutInitWindowSize(500, 500);
+  glutInitWindowSize(720, 720);
   glutCreateWindow("Sierpinski Gasket");
-  initGl();
   glutDisplayFunc(display);
+  glutReshapeFunc(glInit);
+  glInit(720,720);
   glutMainLoop();
 }
 
-void SG::initGl() {
-  glClearColor(1, 1, 1, 1);
+void SG::glInit(int w, int h) {
+
+  glClearColor(1, 1, 1, 1); // Set buffer color to White and clear using buffer.
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  // Enables hidden surface removal
-  glEnable(GL_DEPTH_TEST);
-  // Load identity matrix
+
+  glEnable(GL_DEPTH_TEST);   // Enable hidden surface removal
+
+  glMatrixMode(GL_PROJECTION);   // Load identity matrix into Projection matrix
   glLoadIdentity();
-  glViewport(0, 0, 500, 500);
+
+  glViewport(0, 0, w, h); // Resize viewport to show new w and h.
+  if (h>=w) //This is needed to main proper aspect ratio; otherwise the image would appear stretched
+    glOrtho(-1.0, 1.0, (GLfloat) -h / w, (GLfloat) h / w, -1.0, 1.0); //width is smaller than height
+  else
+    glOrtho((GLfloat) -w / h, (GLfloat) w / h, -1.0, 1.0, -1.0, 1.0); //height is smaller
 }
 
 void SG::display() {
-  int divisions = 5;
+  int divisions = 1; // Take input if need be.
   drawTetrahedron(divisions);
   glFlush();
 }
@@ -57,7 +64,7 @@ void SG::divideTriangle(Vertex a, Vertex b, Vertex c, int divisions) {
       v2[j] = (c[j] + a[j]) / 2;
       v3[j] = (b[j] + c[j]) / 2;
     }
-    // Divide triangle from a/b/c to two other midpoints they are connected to. (a is present in v1 and v2)
+    // Divide triangle from a/b/c to two other midpoints they are connected to. (a is connected to in v1 and v2)
     divideTriangle(a, v1, v2, divisions - 1);
     divideTriangle(b, v3, v1, divisions - 1);
     divideTriangle(c, v2, v3, divisions - 1);
