@@ -1,6 +1,6 @@
 //
 // Created by yashal on 10/5/16.
-//Program to draw a color cube and spin it using OpenGL transformation matrices
+// Program to draw a color cube and spin it using OpenGL transformation matrices
 //
 
 #include "GL/glut.h"
