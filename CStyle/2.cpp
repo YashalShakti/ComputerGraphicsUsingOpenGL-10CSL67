@@ -9,6 +9,7 @@ GLfloat   x0 = 0, y0 = 0, x1 = 120, y1 = 150, // small line
 
 float t0 = 0.0, t1 = 1.0;
 
+// Same for Q2 and Q5
 void drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glBegin(GL_LINE_LOOP);
   {
@@ -18,6 +19,7 @@ void drawLine(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glEnd();
 }
 
+// Same for Q2 and Q5
 void drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glBegin(GL_LINE_LOOP);
   {
@@ -29,6 +31,7 @@ void drawSquare(GLfloat x0, GLfloat y0, GLfloat x1, GLfloat y1) {
   glEnd();
 }
 
+// Same for Q2 and Q5
 void drawResult() {
   drawSquare(xvMin, yvMin, xvMax, yvMax); // draw the viewport
 
@@ -88,6 +91,7 @@ void clipAndDraw() {
   }
 }
 
+// Same for Q2 and Q5
 void display() {
 
   glColor3i(1, 0, 0);
@@ -100,6 +104,7 @@ void display() {
   glFlush();
 }
 
+// Same for Q2 and Q5
 void glInit() {
   glClearColor(1, 1, 1, 1);
   glClear(GL_COLOR_BUFFER_BIT);
@@ -110,6 +115,7 @@ void glInit() {
   glOrtho(0, 720, 0, 720, -1, 1);
 }
 
+// Same for Q2 and Q5
 int main(int argc, char **argv) {
   // Get/store vertices of the original line, windowport and viewport using any method of choice.
   //getValues();  Not really needed unless someone asks
