@@ -1,6 +1,7 @@
 #include <iostream>
 #include "main.h"
 #include "CylinderAndParallelpiped/CylinderAndParallelpiped.h"
+#include "Teapot/Teapot.h"
 int main(int argc, char *argv[]) {
   int choice = 1;
   while (choice) {
@@ -50,8 +51,8 @@ int main(int argc, char *argv[]) {
         break;
       }
       case 7: {
-        CohenSutherland *cohenSutherland = new CohenSutherland();
-        cohenSutherland->main(argc, argv);
+        Teapot *teapot = new Teapot();
+        teapot->main(argc, argv);
         break;
       }
       case 8: {

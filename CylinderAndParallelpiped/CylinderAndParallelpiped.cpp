@@ -30,7 +30,6 @@ void CAP::drawRectangle() {
 }
 
 void CAP::display() {
-  glTranslated(-0.4, 0, 0);
   for (int i = 0; i < 30; i++) {
     glTranslated(0.01, 0.01, 0);
     drawRectangle();
@@ -43,6 +42,7 @@ void CAP::glInit() {
   glClear(GL_COLOR_BUFFER_BIT);
   glViewport(0, 0, 700, 700);
   glLoadIdentity();
+  glTranslated(-0.4, 0, 0);
 }
 
 int CAP::main(int argc, char *argv[]) {
