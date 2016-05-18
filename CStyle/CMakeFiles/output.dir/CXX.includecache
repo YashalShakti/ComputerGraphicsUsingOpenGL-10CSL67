@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yashal/dev/CG2016/CStyle/3.cpp
+GL/glut.h
+/home/yashal/dev/CG2016/CStyle/GL/glut.h
+

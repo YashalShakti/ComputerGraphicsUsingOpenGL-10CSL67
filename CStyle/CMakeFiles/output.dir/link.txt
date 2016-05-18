@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/output.dir/3.cpp.o  -o output -rdynamic -lGLU -lGL -lglut -lXmu -lXi 

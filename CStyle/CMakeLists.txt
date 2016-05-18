@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 # Project Name
 PROJECT(CG2016)
-set (CMAKE_CXX_STANDARD 11)
 
 #########################################################
 # FIND GLUT
@@ -26,7 +25,7 @@ endif(NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(output RectangularMesh/RectangularMesh.h RectangularMesh/RectangularMesh.cpp main.cpp main.h RotatingAHouse/RotatingAHouse.cpp RotatingAHouse/RotatingAHouse.h SierpinskiGasket/SierpinskiGasket.cpp SierpinskiGasket/SierpinskiGasket.h LiangBarsky/LiangBarsky.cpp LiangBarsky/LiangBarsky.h CohenSutherland/CohenSutherland.cpp CohenSutherland/CohenSutherland.h SpinACube/SpinACube.cpp SpinACube/SpinACube.h ClippingAlgorithm/ClippingAlgorithm.cpp ClippingAlgorithm/ClippingAlgorithm.h CylinderAndParallelpiped/CylinderAndParallelpiped.cpp CylinderAndParallelpiped/CylinderAndParallelpiped.h)
+add_executable(output 3.cpp)
 
 ########################################################
 # Linking & stuff
