@@ -1,3 +1,0 @@
-/home/yashal/dev/CG2016/CStyle/CMakeFiles/edit_cache.dir
-/home/yashal/dev/CG2016/CStyle/CMakeFiles/rebuild_cache.dir
-/home/yashal/dev/CG2016/CStyle/CMakeFiles/output.dir
