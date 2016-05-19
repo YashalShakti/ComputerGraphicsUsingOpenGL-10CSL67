@@ -11,7 +11,7 @@ class Scanline {
   int main(int argc, char *argv[]);
  private:
   static void initGl();
-  static void edgedetect(float x1, float y1, float x2, float y2);
+  static void edgeDetect(float x1, float y1, float x2, float y2);
   static void scanFill();
   static void display();
   static void drawPixel(int x, int y);

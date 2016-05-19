@@ -12,7 +12,7 @@ class RectangularMesh {
   int main(int argc, char *argv[]);
 
  private:
-  void init();
+  void initGl();
   static void display();
 };
 

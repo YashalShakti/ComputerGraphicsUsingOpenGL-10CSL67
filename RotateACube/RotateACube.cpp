@@ -54,30 +54,21 @@ void RotateACube::reshape(int w, int h) {
 
 void RotateACube::keyboardListener(unsigned char key, int x, int y) {
   int sign = 1;
+  if((int)x>92){
+    sign=0;
+  }
   switch (key) {
     case 'x':
-      store(1, 0, 0);
-      sign = 1;
-      break;
     case 'X':
       store(1, 0, 0);
-      sign = -1;
       break;
     case 'y':
-      store(0, 1, 0);
-      sign = 1;
-      break;
     case 'Y':
       store(0, 1, 0);
-      sign = -1;
       break;
     case 'z':
-      store(0, 0, 1);
-      sign = 1;
-      break;
     case 'Z':
       store(0, 0, 1);
-      sign = -1;
       break;
   }
   glRotated(sign*0.6, currentRotateAxis[0], currentRotateAxis[1], currentRotateAxis[2]);   // Rotate the selected axis

@@ -47,8 +47,9 @@ void RH::rotate(GLfloat theta, GLfloat result[3][NUM_VERTICES]) {
 void RH::display() {
   GLfloat result[3][NUM_VERTICES] = {{0}, {0}, {0}};
   drawHouse(house);//draw before rotating
-  rotate(theta, result);//function to rotate
-  drawHouse(result);//draw after rotating
+  glRotated(theta,1,1,1);
+  //rotate(theta, result);//function to rotate
+  drawHouse(house);//draw after rotating
   glFlush();
 }
 

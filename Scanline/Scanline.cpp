@@ -8,7 +8,7 @@
 float x1 = 200, x2 = 300, x3 = 400, x4 = 300, y1 = 200, y2 = 300, y3 = 200, y4 = 100;
 int le[500], re[500];
 
-void Scanline::edgedetect(float x1, float y1, float x2, float y2) {
+void Scanline::edgeDetect(float x1, float y1, float x2, float y2) {
   float slopeX, swapTemp;
 
   if (y2 < y1) {
@@ -47,10 +47,10 @@ void Scanline::scanFill() {
     re[i] = 0;
   }
 
-  edgedetect(x1, y1, x2, y2);
-  edgedetect(x2, y2, x3, y3);
-  edgedetect(x3, y3, x4, y4);
-  edgedetect(x4, y4, x1, y1);
+  edgeDetect(x1, y1, x2, y2);
+  edgeDetect(x2, y2, x3, y3);
+  edgeDetect(x3, y3, x4, y4);
+  edgeDetect(x4, y4, x1, y1);
 
   for (int j = 0; j < 500; j++) {
     if (le[j] <= re[j])
