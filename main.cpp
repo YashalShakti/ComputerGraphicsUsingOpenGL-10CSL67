@@ -3,6 +3,7 @@
 #include "CylinderAndParallelpiped/CylinderAndParallelpiped.h"
 #include "Teapot/Teapot.h"
 #include "RotateACube/RotateACube.h"
+#include "Scanline/Scanline.h"
 int main(int argc, char *argv[]) {
   int choice = 1;
   while (choice) {
@@ -58,13 +59,13 @@ int main(int argc, char *argv[]) {
       }
       case 8: {
         RotateACube *rotateACube = new RotateACube();
-        rotateACube->main(argc,argv);
-      //  rotateACube->main(argc, argv);
+        rotateACube->main(argc, argv);
+        //  rotateACube->main(argc, argv);
         break;
       }
       case 9: {
-        CohenSutherland *cohenSutherland = new CohenSutherland();
-        cohenSutherland->main(argc, argv);
+        Scanline *scanline = new Scanline();
+        scanline->main(argc, argv);
         break;
       }
       case 10: {

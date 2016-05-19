@@ -26,7 +26,7 @@ endif(NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(output RotateACube/RotateACube.cpp RotateACube/RotateACube.h RectangularMesh/RectangularMesh.h RectangularMesh/RectangularMesh.cpp main.cpp main.h RotatingAHouse/RotatingAHouse.cpp RotatingAHouse/RotatingAHouse.h SierpinskiGasket/SierpinskiGasket.cpp SierpinskiGasket/SierpinskiGasket.h LiangBarsky/LiangBarsky.cpp LiangBarsky/LiangBarsky.h CohenSutherland/CohenSutherland.cpp CohenSutherland/CohenSutherland.h SpinACube/SpinACube.cpp SpinACube/RotateACube.h ClippingAlgorithm/ClippingAlgorithm.cpp ClippingAlgorithm/ClippingAlgorithm.h CylinderAndParallelpiped/CylinderAndParallelpiped.cpp CylinderAndParallelpiped/CylinderAndParallelpiped.h Teapot/Teapot.cpp Teapot/Teapot.h)
+add_executable(output RotateACube/RotateACube.cpp RotateACube/RotateACube.h RectangularMesh/RectangularMesh.h RectangularMesh/RectangularMesh.cpp main.cpp main.h RotatingAHouse/RotatingAHouse.cpp RotatingAHouse/RotatingAHouse.h SierpinskiGasket/SierpinskiGasket.cpp SierpinskiGasket/SierpinskiGasket.h LiangBarsky/LiangBarsky.cpp LiangBarsky/LiangBarsky.h CohenSutherland/CohenSutherland.cpp CohenSutherland/CohenSutherland.h SpinACube/SpinACube.cpp SpinACube/RotateACube.h ClippingAlgorithm/ClippingAlgorithm.cpp ClippingAlgorithm/ClippingAlgorithm.h CylinderAndParallelpiped/CylinderAndParallelpiped.cpp CylinderAndParallelpiped/CylinderAndParallelpiped.h Teapot/Teapot.cpp Teapot/Teapot.h Scanline/Scanline.cpp Scanline/Scanline.h)
 
 ########################################################
 # Linking & stuff
