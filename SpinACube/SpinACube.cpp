@@ -2,7 +2,7 @@
 // Created by yashal on 10/5/16.
 //
 
-#include "SpinACube.h"
+#include "RotateACube.h"
 static GLfloat vertices[]={-0.5f,-0.5f,-0.5f,    -0.5f,0.5f,-0.5f,    0.5f,0.5f,-0.5f,   0.5f,-0.5f,-0.5f,
                            -0.5f,-0.5f,0.5f,     -0.5f,0.5f,0.5f,     0.5f,0.5f,0.5f,    0.5f,-0.5f,0.5f};
 

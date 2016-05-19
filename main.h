@@ -12,4 +12,4 @@
 #include "SierpinskiGasket/SierpinskiGasket.h"
 #include "LiangBarsky/LiangBarsky.h"
 #include "CohenSutherland/CohenSutherland.h"
-#include "SpinACube/SpinACube.h"
+#include "SpinACube/RotateACube.h"
