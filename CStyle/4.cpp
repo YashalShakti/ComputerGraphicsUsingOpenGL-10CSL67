@@ -35,7 +35,7 @@ void glInit() {
   glClear(GL_COLOR_BUFFER_BIT);
   glEnableClientState(GL_VERTEX_ARRAY);
   glVertexPointer(2, GL_FLOAT, 0, vertex);
-  // View from -20 to 20 since our left bottom is at 0 and after rotating left it will get clipped
+  // View from -20 to 20 since the left bottom is at 0 and after rotating left it will get clipped
   glOrtho(-20, 20, -20, 20, -1, 1);
 }
 

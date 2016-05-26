@@ -42,12 +42,8 @@ void display() {
 }
 
 void glInit() {
-
   glClear(GL_COLOR_BUFFER_BIT);
-
   glLoadIdentity();
-  glTranslated(-0.4, 0, 0);
-
   glViewport(0, 0, 700, 700);
 }
 
